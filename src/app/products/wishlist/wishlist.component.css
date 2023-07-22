@@ -1,0 +1,25 @@
+.wishlistEmpty{
+    align-items: center;
+    justify-content: center;
+    margin-left: 100%;
+    margin-right: 100%;
+    margin-top: 10%;
+    width: 500px;
+}
+
+
+#product{
+    width: 150px;
+    height: 200px;
+    margin: 40px;
+    transition: scale 1s ease-in-out;
+
+}
+
+#product:hover{
+    scale:1.2;
+    
+}
+.card:hover{
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;;
+}

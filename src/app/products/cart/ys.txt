@@ -1,0 +1,2 @@
+<div *ngIf="this.DetailsForm.get('phone')?.errors &&this.DetailsForm.get('phone')?.touched" class="text-danger">Invalid Data</div>
+this.houseNo=this.DetailsForm.value.houseNo||'';

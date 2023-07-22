@@ -1,0 +1,32 @@
+#viewImage{
+    height: 600px;
+    width: 500px;
+    padding: 30px;
+    transition: scale 1s ease-in-out;
+
+}
+
+#viewImage:hover{
+    scale: 1.1;
+    
+}
+.row{
+    padding: 20px;
+}
+
+.container{
+border: 2px solid rgba(0, 0, 0, 0.137);
+height: 1000px;
+
+/* background: #d372728c */
+}
+
+#description{
+    /* background: #f7e5e5; */
+    padding: 41px;
+}
+
+#addToWishlist{
+    color:rgb(255, 187, 0);
+    margin-left: 230px;
+}

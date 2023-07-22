@@ -1,0 +1,55 @@
+                                    E-cart-Frontend
+                        -------------------------------------
+
+            1.Create a folder E-cart 
+            2.inside i it Create a angular Application - ng new e-cart-Frontend
+            3.cd e-cart-Frontend
+            4.code .
+            5.Run angular application - ng s -o
+            6.Clear code in app.component.html
+            7.Import 3rd party libraries -
+                        ->bootstrap(index.html)
+                        ->font-awesome(index.html)
+                        ->google Fonts(style.css)
+            8.Lazy Loading
+              -Lazy loading helps keep initial bundle sizes smaller,which in turn helps decrease load times.
+               Lazy loading is an approach to limit the modules that
+               are loaded to the ones that the user currently needs.
+               This can improve your application's performance and reduce the initial bundle size.
+
+            We have one module in our application -app-module
+            Here we create another module
+            ->Generate module - ng generate module module-name ->ng g m products --route products --module app.module
+
+            9.Component generation
+                ->ng g c products/allProducts
+                ->ng g c products/viewProducts
+                ->ng g c products/wishlist
+                ->ng g c products/cart
+              Not in lazy Loading
+                ->ng g c header
+                ->ng g c footer
+                ->ng g c pageNotFound 
+
+            10.Setup Path
+            ->put <router-outlet></router-outlet> in app.component.html
+            ->products.routing.module.ts -> 
+
+            11. API Integration
+
+                =>import HttpClientModule in app.module.ts
+                =>Create a services inside product module - for API Calling
+                   -ng g s products/services/api
+                =>Inside api.services.ts file 
+                    -create and use http dependency injection
+                    -also create a function for (getAllProducts()) fetching all products details.
+                =>Inside all-Products.component file ,
+                    -Create and use api dependency injection
+                    -also create a function in api.services.ts for integrating api service
+                    -get all products details
+
+                =>Wishlist functionality is Completed
+
+                =>Product Search
+                    -ng g p products/pipes/filter
+

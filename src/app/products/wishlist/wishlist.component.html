@@ -1,0 +1,53 @@
+<p class="text-danger text-center">wishlist works!</p>
+
+<!-- Wishlist with content -->
+<div class="container" *ngIf="allWishlistItems.length==0"><!----This is work only  if wishlists is empty -->
+    <div class="row ">
+        <div class="col-3">
+            <img class="wishlistEmpty"  src="https://img.freepik.com/free-vector/empty-concept-illustration_114360-1233.jpg?w=740&t=st=1687709021~exp=1687709621~hmac=14dbd8e568da82023479d28a43c28bf1c667023511260e776ba2bdb7df33e983"  alt="">
+        </div>
+
+    </div>
+    <div class="text-center mb-5">
+        <button class="btn btn-lg btn-outline-primary " routerLink="">Continue Shopping</button>
+    </div>
+</div>
+
+
+<section class="py-5" *ngIf="allWishlistItems.length!==0"><!----This is work only  if wishlists not empty -->
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let wishlist of allWishlistItems">
+                <div class="card h-100" >
+                    <!-- Product image-->
+                    <img class="card-img-top" id="product" [src]="wishlist.image" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{wishlist.title}}</h5>
+                            <!-- Product price-->
+                            {{wishlist.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+
+                    <div class="d-flex bg-black">
+                        <div class="d-flex justify-content-center bg-danger" style="border-right:2px solid white;width:110px">
+                            <button class="btn text-center text-white" (click)="deleteWishlist(wishlist.id)"><i class="fa-solid fa-heart-circle-xmark fa-fade text-white "></i></button>
+                        </div>
+                        <div class="d-flex justify-content-center bg-success" style="width:120px">
+                            <button (click)="addToCart(wishlist)" class="btn text-center"><i class="fa-sharp fa-solid fa-cart-plus fa-fade text-white"></i></button>
+                        </div>
+                        
+                    </div>
+                    <div [innerHTML]="deletedFromWishlist" id="deletedFromWishlist"></div>
+ 
+                    <!-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a></div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

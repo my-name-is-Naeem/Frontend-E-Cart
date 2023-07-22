@@ -1,0 +1,24 @@
+.navbar{
+    position: sticky;
+    top: 0;
+}
+
+input[type="search"] {
+  background: #FFF;
+  padding: .5rem 1rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 178px;
+  height: 40px;
+  outline: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  transition: all .5s;
+}
+
+input[type="search"]:focus {
+  width: 300px;
+  top: 0;
+  right: 100%;
+}
