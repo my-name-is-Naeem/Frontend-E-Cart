@@ -6,12 +6,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-
   //to hold cart count
   cartItemCount = new BehaviorSubject(0);
 
   //Backend Path
-  BASE_URL = 'http://localhost:5001';
+  // BASE_URL = 'http://localhost:5001';
+  BASE_URL = 'https://backend-e-cart-gr3h.onrender.com';
 
   //to hold Search Term
   searchTerm = new BehaviorSubject('');
@@ -47,43 +47,40 @@ export class ApiService {
   }
 
   //
-  addToCart(product:any) {
-    const body = { 
-      id:product.id, 
-      title:product.title, 
-      price:product.price, 
-      image:product.image,
-      quantity:product.quantity};
+  addToCart(product: any) {
+    const body = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.image,
+      quantity: product.quantity,
+    };
     return this.http.post(`${this.BASE_URL}/products/addToCart`, body); //because of post we need to add body
   }
 
-  getCart()
-  {
+  getCart() {
     return this.http.get(`${this.BASE_URL}/products/carts`);
   }
 
   // cart count
-  cartCount(){
-    this.getCart().subscribe((result:any)=>{
+  cartCount() {
+    this.getCart().subscribe((result: any) => {
       this.cartItemCount.next(result.length);
-    })
+    });
   }
 
   //delete cart product
-  deleteCart(id:any)
-  {
-    return this.http.delete(`${this.BASE_URL}/products/deleteCart/${id}`)
+  deleteCart(id: any) {
+    return this.http.delete(`${this.BASE_URL}/products/deleteCart/${id}`);
   }
 
   //increment cart
-  incrementCart(productId:any)
-  {
+  incrementCart(productId: any) {
     return this.http.get(`${this.BASE_URL}/products/increment/${productId}`);
   }
 
   //Decrement Cart
-  decrementCart(productId:any)
-  {
+  decrementCart(productId: any) {
     return this.http.get(`${this.BASE_URL}/products/decrement/${productId}`);
   }
 }
